@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   ]
 })
 export class FooterComponent {
-
+  public year = signal<number>(new Date().getFullYear());
 }
