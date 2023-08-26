@@ -14,6 +14,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 import { GraficalComponent } from './pages/grafical/grafical.component';
+import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { GraficalComponent } from './pages/grafical/grafical.component';
     FooterComponent,
     ProgressComponent,
     GraficalComponent,
+    PagesComponent,
   ],
   imports: [
     BrowserModule,
