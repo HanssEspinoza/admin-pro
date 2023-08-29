@@ -7,7 +7,6 @@ import { SharedModule } from '../shared';
 import { DashboardComponent } from './dashboard';
 import { GraficalComponent } from './grafical';
 import { ProgressComponent } from './progress';
-import { AppRoutingModule } from '../app-routing.module';
 import { PagesComponent } from './pages.component';
 
 
@@ -21,8 +20,7 @@ import { PagesComponent } from './pages.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    AppRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class PagesModule { }
