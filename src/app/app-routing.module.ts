@@ -10,6 +10,14 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('@features/admin').then(m => m.AdminModule),
   },
+  {
+    path: '404',
+    loadComponent: () => import('@shared/pages').then(c => c.NotFoundComponent),
+  },
+  {
+    path: '**',
+    redirectTo: '404'
+  }
 ];
 
 @NgModule({
