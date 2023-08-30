@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('@features/public').then(m => m.PublicModule),
   },
   {
-    path: 'admin',
+    path: 'dashboard',
     loadChildren: () => import('@features/admin').then(m => m.AdminModule),
   },
   {

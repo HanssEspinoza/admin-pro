@@ -9,7 +9,7 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     children: [
       {
-        path: 'dashboard',
+        path: '',
         loadChildren: () => import('@features/admin').then(m => m.DashboardModule),
       },
       {
@@ -20,7 +20,6 @@ const routes: Routes = [
         path: 'progress',
         loadChildren: () => import('@features/admin').then(m => m.ProgressModule),
       },
-      { path: '**', redirectTo: 'dashboard' }
     ]
   }
 ];
