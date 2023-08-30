@@ -1,1 +1,16 @@
-<router-outlet/>
+<div id="main-wrapper">
+  <!-- Header component -->
+  <admin-header />
+  <!-- Sidebar component -->
+  <admin-sidebar />
+  <div class="page-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs component -->
+      <admin-breadcrumbs />
+      <!-- Routes system -->
+      <router-outlet />
+    </div>
+    <!-- Footer component -->
+    <admin-footer/>
+  </div>
+</div>
