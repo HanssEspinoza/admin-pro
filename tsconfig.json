@@ -29,6 +29,9 @@
       "@shared/*": [
         "./src/app/shared/*"
       ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
     },
     "lib": [
       "ES2022",

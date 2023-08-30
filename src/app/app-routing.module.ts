@@ -1,27 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { NoPageFoundComponent } from './pages/no-page-found/no-page-found.component';
-
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages').then(m => m.PagesModule),
+    loadChildren: () => import('@features/public').then(m => m.PublicModule),
   },
-
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-
-  { path: '**', component: NoPageFoundComponent },
-]
+  {
+    path: 'admin',
+    loadChildren: () => import('@features/admin').then(m => m.AdminModule),
+  },
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
