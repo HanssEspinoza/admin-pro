@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-progress',
+  selector: 'admin-progress',
   templateUrl: './progress.component.html',
   styles: [
   ]
