@@ -5,8 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'shared-not-found',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './not-found.component.html',
-  styleUrls: ['./not-found.component.css']
+  templateUrl: './not-found.component.html'
 })
 export class NotFoundComponent {
   public year = signal<number>( new Date().getFullYear() )
