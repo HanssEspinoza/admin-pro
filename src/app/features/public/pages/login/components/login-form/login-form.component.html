@@ -2,10 +2,7 @@
   <div className="mb-4">
     <div class="form-control w-full mt-4">
       <label Name="label">Correo Electrónico</label>
-      <input
-        class="input input-bordered w-full"
-        type="text"
-      />
+      <input class="input input-bordered w-full" type="text" />
     </div>
     <div class="form-control w-full mt-4">
       <label Name="label">Contraseña</label>
@@ -20,8 +17,10 @@
   </div>
   <button type="submit" class="btn mt-8 w-full btn-primary">Entrar</button>
   <div class="text-center mt-4">
-    ¿No tiene una cuenta? <span
+    ¿No tiene una cuenta?
+    <span
       class="inline-block hover:text-primary hover:underline hover:cursor-pointer transition duration-200"
+      routerLink="/register"
       >Regístrate</span
     >
   </div>
