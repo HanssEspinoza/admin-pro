@@ -1,9 +1,7 @@
 import { Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { COLOR } from '@core/dictionary';
-
-type color = (typeof COLOR)[keyof typeof COLOR];
+import { Color } from '@core/enum';
 
 @Component({
   selector: 'shared-btn',
@@ -15,24 +13,17 @@ export class BtnComponent {
   @Input()
   public type: 'button' | 'submit' | 'reset' = 'button';
   @Input()
-  public color: color = COLOR.PRIMARY;
+  public color: Color = Color.PRIMARY;
   @Input()
-  public outline: boolean = false;
+  public outline = false;
   @Input()
   public btnDisabled = false;
 
   get colors() {
     return {
-      'btn-primary': this.color === 'primary',
-      'btn-secondary': this.color === 'secondary',
-      'btn-neutral': this.color === 'neutral',
-      'btn-accent': this.color === 'accent',
-      'btn-ghost': this.color === 'ghost',
-      'btn-success': this.color === 'success',
-      'btn-warning': this.color === 'warning',
-      'btn-error': this.color === 'error',
-      'btn-info': this.color === 'info',
-      'btn-link': this.color === 'link',
+      [`btn-${this.color}`]: true,
+      'btn-outline': this.outline,
+      'btn-disabled': this.btnDisabled,
     };
   }
 }
