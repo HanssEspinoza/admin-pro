@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { COLOR } from '@core/dictionary';
 
-type color = typeof COLOR[keyof typeof COLOR];
+type color = (typeof COLOR)[keyof typeof COLOR];
 
 @Component({
   selector: 'shared-btn',
@@ -16,6 +16,10 @@ export class BtnComponent {
   public type: 'button' | 'submit' | 'reset' = 'button';
   @Input()
   public color: color = COLOR.PRIMARY;
+  @Input()
+  public outline: boolean = false;
+  @Input()
+  public btnDisabled = false;
 
   get colors() {
     return {
@@ -29,6 +33,6 @@ export class BtnComponent {
       'btn-error': this.color === 'error',
       'btn-info': this.color === 'info',
       'btn-link': this.color === 'link',
-    }
+    };
   }
 }
