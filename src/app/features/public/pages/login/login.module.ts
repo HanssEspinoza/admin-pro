@@ -6,7 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { LoginFormComponent } from './components';
-import { BtnComponent } from '@shared/components';
+import { BtnComponent, EyeBtnComponent } from '@shared/components';
 
 
 @NgModule({
@@ -18,6 +18,7 @@ import { BtnComponent } from '@shared/components';
     CommonModule,
     LoginRoutingModule,
     BtnComponent,
+    EyeBtnComponent,
     FontAwesomeModule,
   ]
 })

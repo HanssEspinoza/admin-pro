@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { RegisterFormComponent } from './components';
-import { BtnComponent } from '@shared/components';
+import { BtnComponent, EyeBtnComponent } from '@shared/components';
 
 
 @NgModule({
@@ -15,6 +15,7 @@ import { BtnComponent } from '@shared/components';
   imports: [
     CommonModule,
     RegisterRoutingModule,
+    EyeBtnComponent,
     BtnComponent,
   ]
 })

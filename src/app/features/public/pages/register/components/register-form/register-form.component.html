@@ -14,7 +14,13 @@
     </div>
     <div class="form-control w-full mt-4">
       <label Name="label">Contraseña</label>
-      <input class="input input-bordered w-full" type="password" />
+      <div class="relative">
+        <input
+          class="input input-bordered w-full"
+          [type]="showPassword() ? 'text' : 'password'"
+        />
+        <shared-eye-btn  />
+      </div>
     </div>
     <div class="form-control w-full mt-4">
       <label Name="label">Repetir contraseña</label>

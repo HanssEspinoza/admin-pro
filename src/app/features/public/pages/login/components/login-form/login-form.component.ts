@@ -1,17 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 
-import {
-  IconDefinition,
-  faEye,
-  faEyeSlash,
-} from '@fortawesome/free-solid-svg-icons';
+import { EyeBtnService } from '@core/services';
 
 @Component({
   selector: 'login-form',
   templateUrl: './login-form.component.html',
 })
 export class LoginFormComponent {
-  public faEye = signal<IconDefinition>(faEye);
-  public faEyeSlash = signal<IconDefinition>(faEyeSlash);
-  public showPassword = signal<boolean>(false);
+  private eyeBtnService = inject(EyeBtnService);
+
+  public showPassword = computed<boolean>(this.eyeBtnService.showEye);
 }
