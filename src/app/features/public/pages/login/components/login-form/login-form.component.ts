@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { EyeBtnService } from '@core/services';
+import { AuthService, EyeBtnService } from '@core/services';
 
 @Component({
   selector: 'login-form',
@@ -10,15 +10,16 @@ import { EyeBtnService } from '@core/services';
 export class LoginFormComponent {
   private eyeBtnService = inject(EyeBtnService);
   private fb = inject(FormBuilder);
+  private authService = inject(AuthService)
 
   public loginForm: FormGroup = this.fb.group({
-    email: [''],
-    password: ['']
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
   });
 
   public showPassword = computed<boolean>(this.eyeBtnService.showEye);
 
   public onLogin():void {
-    console.log(this.loginForm.value);
+    this.authService.sendLogin(this.loginForm.value);
   }
 }

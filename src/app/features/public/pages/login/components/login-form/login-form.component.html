@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()" autocomplete="off">
   <div class="mb-4">
     <div class="form-control w-full mt-4">
       <label class="label" for="email">Correo Electrónico</label>
@@ -28,7 +28,7 @@
       >Recuperar contraseña</span
     >
   </div>
-  <shared-btn [type]="'submit'">Entrar</shared-btn>
+  <shared-btn [type]="'submit'" [btnDisabled]="!loginForm.valid">Entrar</shared-btn>
   <div class="text-center mt-4">
     ¿No tiene una cuenta?
     <span
