@@ -17,6 +17,11 @@ import { EyeBtnService } from '@core/services';
   templateUrl: './eye-btn.component.html'
 })
 export class EyeBtnComponent {
+
+  // Forma con Constructor
+  // constructor(private eyeBtnService: EyeBtnService) {}
+
+  // Forma con inject
   private eyeBtnService = inject(EyeBtnService);
 
   public showEye = computed<boolean>(this.eyeBtnService.showEye);
