@@ -19,7 +19,6 @@ export class LoginFormComponent {
   private destroyRef = inject(DestroyRef);
   private toastService = inject(ToastService);
 
-  private faCircleXmark:IconDefinition = faCircleXmark;
   public showPassword = computed<boolean>(this.eyeBtnService.showEye);
 
   public loginForm: FormGroup = this.fb.group({
