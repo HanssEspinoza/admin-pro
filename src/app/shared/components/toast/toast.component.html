@@ -1,4 +1,4 @@
-<div class="toast toast-end" [ngClass]="fadeOut()" *ngIf="isActive$()">
+<div class="toast toast-end" [ngClass]="fadeOut() ? 'animate__animated fadeOut' : ''" *ngIf="isActive$()">
   <div class="alert" [ngClass]="toastConfig$().color">
     <fa-icon [icon]="toastConfig$().icon" />
     <span>{{ toastConfig$().message }}</span>

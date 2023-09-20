@@ -17,10 +17,10 @@ export class ToastComponent {
 
   public isActive$ = computed(() => this.toastService.isActive$());
   public toastConfig$ = computed(() => this.toastService.toastConfig$());
-  public fadeOut = signal<string>('')
+  public fadeOut = signal<boolean>(false)
 
   closeToast(): void{
-    this.fadeOut.set('animate__animated fadeOut');
+    this.fadeOut.set(true);
     this.toastService.hide();
   }
 }
