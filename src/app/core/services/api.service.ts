@@ -19,24 +19,24 @@ export class ApiService {
   }
 
   // Métodos globales para las peticiones HTTP (GET, POST, PATCH, DELETE)
-  getAll(path: string): Observable<object> {
-    return this.httpClient.get(`${this.apiUrl}/${path}`);
+  getAll<T>(path: string): Observable<MyResponse<T>> {
+    return this.httpClient.get<MyResponse<T>>(`${this.apiUrl}/${path}`);
   }
 
-  getById(path: string, id: number | string): Observable<object> {
-    return this.httpClient.get(`${this.apiUrl}/${path}/${id}`);
+  getById<T>(path: string, id: number | string): Observable<MyResponse<T>> {
+    return this.httpClient.get<MyResponse<T>>(`${this.apiUrl}/${path}/${id}`);
   }
 
-  store(path: string, body: object): Observable<MyResponse<any>> {
-    return this.httpClient.post<any>(`${this.apiUrl}/${path}`,body);
+  store<T>(path: string, body: object): Observable<MyResponse<T>> {
+    return this.httpClient.post<MyResponse<T>>(`${this.apiUrl}/${path}`,body);
   }
 
-  update(path: string, body: object, id: number | string): Observable<object> {
-    return this.httpClient.patch(`${this.apiUrl}/${path}/${id}`,body);
+  update<T>(path: string, body: object, id: number | string): Observable<MyResponse<T>> {
+    return this.httpClient.patch<MyResponse<T>>(`${this.apiUrl}/${path}/${id}`,body);
   }
 
-  delete(path: string, id: number | string): Observable<object> {
-    return this.httpClient.delete(`${this.apiUrl}/${path}/${id}`);
+  delete<T>(path: string, id: number | string): Observable<MyResponse<T>> {
+    return this.httpClient.delete<MyResponse<T>>(`${this.apiUrl}/${path}/${id}`);
   }
 
 }

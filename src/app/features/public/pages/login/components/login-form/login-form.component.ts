@@ -31,9 +31,7 @@ export class LoginFormComponent {
     this.authService.sendLogin(this.loginForm.value)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
-        next: (resp) => {
-          this.router.navigateByUrl('/dashboard')
-        },
+        next: () => this.router.navigateByUrl('/dashboard'),
         error: (message) => {
           console.log(message)
           this.toastService.show('error',message,faCircleXmark);
