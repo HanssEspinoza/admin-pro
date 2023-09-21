@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
 
+import { MyResponse } from '../models';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,8 +27,8 @@ export class ApiService {
     return this.httpClient.get(`${this.apiUrl}/${path}/${id}`);
   }
 
-  store(path: string, body: object): Observable<object> {
-    return this.httpClient.post(`${this.apiUrl}/${path}`,body);
+  store(path: string, body: object): Observable<MyResponse<any>> {
+    return this.httpClient.post<any>(`${this.apiUrl}/${path}`,body);
   }
 
   update(path: string, body: object, id: number | string): Observable<object> {
