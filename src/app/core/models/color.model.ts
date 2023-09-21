@@ -1,4 +1,4 @@
-export type Color =
+export type ButtonColor =
   | 'primary'
   | 'secondary'
   | 'accent'
@@ -9,3 +9,5 @@ export type Color =
   | 'error'
   | 'ghost'
   | 'link';
+
+export type AlertColor = 'alert' | 'warning' | 'error' | 'success' | 'info';

@@ -2,8 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faFontAwesome } from '@fortawesome/free-regular-svg-icons';
 
-import { Toast } from '../models';
-import { AlertColor } from '../enum';
+import { AlertColor, Toast } from '../models';
 
 
 @Injectable({
@@ -13,7 +12,7 @@ export class ToastService {
   private timeout = signal<number>(14000);
   public isActive$ = signal<boolean>(false);
   public toastConfig$ = signal<Toast>({
-    color: AlertColor.ALERT,
+    color: 'alert',
     message: '',
     icon: faFontAwesome,
   });

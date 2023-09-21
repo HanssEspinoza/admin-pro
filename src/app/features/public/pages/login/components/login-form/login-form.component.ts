@@ -5,7 +5,6 @@ import { IconDefinition, faCircleXmark } from '@fortawesome/free-regular-svg-ico
 
 import { AuthService, EyeBtnService, ToastService } from '@core/services';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { AlertColor } from '@core/enum';
 
 @Component({
   selector: 'login-form',
@@ -34,7 +33,7 @@ export class LoginFormComponent {
         next: () => this.router.navigateByUrl('/dashboard'),
         error: (message) => {
           console.log(message)
-          this.toastService.show(AlertColor.ERROR,message,faCircleXmark);
+          this.toastService.show('error',message,faCircleXmark);
         }
       });
   }

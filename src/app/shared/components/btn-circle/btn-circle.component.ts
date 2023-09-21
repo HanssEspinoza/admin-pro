@@ -1,7 +1,7 @@
 import { Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Color, Size } from '@core/models';
+import { ButtonColor, Size } from '@core/models';
 
 @Component({
   selector: 'shared-circle-btn',
@@ -11,13 +11,13 @@ import { Color, Size } from '@core/models';
 })
 export class BtnCircleComponent {
   @Input()
-  public color: Color = 'primary';
+  public color: ButtonColor = 'primary';
   @Input()
   public outline = false;
   @Input()
   public size:Size = 'md';
 
-  get colors() {
+  get styles() {
     return {
       [`btn-${this.color}`]: true,
       [`btn-${this.size}`]: true,

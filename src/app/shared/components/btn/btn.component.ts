@@ -1,7 +1,7 @@
 import { Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Color, Size } from '@core/models';
+import { ButtonColor, Size } from '@core/models';
 
 @Component({
   selector: 'shared-btn',
@@ -13,7 +13,7 @@ export class BtnComponent {
   @Input()
   public type: 'button' | 'submit' | 'reset' = 'button';
   @Input()
-  public color: Color = 'primary';
+  public color: ButtonColor = 'primary';
   @Input()
   public outline = false;
   @Input()
@@ -21,7 +21,7 @@ export class BtnComponent {
   @Input()
   public size:Size = 'md';
 
-  get colors() {
+  get styles() {
     return {
       [`btn-${this.color}`]: true,
       [`btn-${this.size}`]: true,

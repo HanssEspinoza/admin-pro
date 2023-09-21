@@ -11,7 +11,7 @@ import { BtnCircleComponent } from '../btn-circle';
   standalone: true,
   imports: [CommonModule, FontAwesomeModule, BtnCircleComponent],
   templateUrl: './toast.component.html',
-  styleUrls: ['./toast.component.css']
+  styleUrls: ['./toast.component.css'],
 })
 export class ToastComponent {
   private toastService = inject(ToastService);
@@ -20,7 +20,13 @@ export class ToastComponent {
   public toastConfig$ = computed(() => this.toastService.toastConfig$());
   public faX = signal<IconDefinition>(faX);
 
-  closeToast(): void{
+  closeToast(): void {
     this.toastService.hide();
+  }
+
+  get styles() {
+    return {
+      [`alert-${this.toastConfig$().color}`]: true,
+    };
   }
 }
