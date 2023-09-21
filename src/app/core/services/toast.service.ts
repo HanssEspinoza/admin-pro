@@ -10,7 +10,7 @@ import { AlertColor } from '../enum';
   providedIn: 'root'
 })
 export class ToastService {
-  private timeout = signal<number>(5000);
+  private timeout = signal<number>(14000);
   public isActive$ = signal<boolean>(false);
   public toastConfig$ = signal<Toast>({
     color: AlertColor.ALERT,

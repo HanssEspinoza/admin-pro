@@ -1,3 +1,6 @@
-<button class="btn btn-circle btn-xs">
-  <fa-icon [icon]="faX()" />
+<button
+  [ngClass]="colors"
+  class="btn btn-circle"
+>
+  <ng-content/>
 </button>
