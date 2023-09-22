@@ -37,13 +37,14 @@ export class AuthService {
   logout() {
     this.localStorageService.removeItem('token');
     this._currentUser.set(null);
-    this._authStatus.set('noAuthenticated')
+    this._authStatus.set('noAuthenticated');
   }
 
   private setAuthentication(reply: LoginResponse): boolean {
     this._currentUser.set(reply.user);
     this._authStatus.set('authenticated');
     this.localStorageService.setItem('token', reply.token);
+    this.localStorageService.setItem('status', this._authStatus());
 
     return true
   }

@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { isAuthenticatedGuard, isNotAuthenticatedGuard } from './core';
+
 const routes: Routes = [
   {
-    path: '',
+    path: 'auth',
+    canActivate: [isNotAuthenticatedGuard],
     loadChildren: () => import('@features/public').then(m => m.PublicModule),
   },
   {
     path: 'dashboard',
+    canActivate: [isAuthenticatedGuard],
     loadChildren: () => import('@features/admin').then(m => m.AdminModule),
   },
   {
