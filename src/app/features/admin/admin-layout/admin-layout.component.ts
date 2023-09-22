@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '@features/public';
@@ -10,6 +10,8 @@ import { AuthService } from '@features/public';
 export class AdminLayoutComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
+
+  public user = computed(() => this.authService.CurrentUser());
 
   onLogout():void {
     this.authService.logout();
