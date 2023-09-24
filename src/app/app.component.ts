@@ -13,15 +13,13 @@ export class AppComponent {
   private router = inject(Router);
 
   public finishedAuthCheck = computed<boolean>(() => {
-    if ( this.authService.authStatus() === 'checking') return false;
+    if (this.authService.authStatus() === 'checking') return false;
 
     return true;
   });
 
   public authStatusChangedEffect = effect(() => {
-    console.log(`authStatus: ${this.authService.authStatus()}`);
-
-    switch(this.authService.authStatus()) {
+    switch (this.authService.authStatus()) {
       case 'checking':
         return;
 
@@ -30,8 +28,8 @@ export class AppComponent {
         return;
 
       case 'noAuthenticated':
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/auth');
         return;
     }
-  })
+  });
 }
