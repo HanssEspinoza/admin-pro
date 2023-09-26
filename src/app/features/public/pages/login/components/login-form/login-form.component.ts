@@ -19,7 +19,7 @@ export class LoginFormComponent {
   private destroyRef = inject(DestroyRef);
   private toastService = inject(ToastService);
 
-  public showPassword = computed<boolean>(this.eyeBtnService.showEye);
+  public showPassword = this.eyeBtnService.showEye;
 
   public loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
