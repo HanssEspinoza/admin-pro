@@ -8,8 +8,14 @@
         id="email"
         formControlName="email"
       />
-      <label class="label" *ngIf="loginForm.controls['email'].touched">
-        <span *ngIf="!loginForm.controls['email'].valid" class="label-text-alt text-error">Campo incorrecto</span>
+      <label *ngIf="loginForm.controls['email'].touched">
+        <span
+          class="label-text-alt"
+          customLabel
+          [errors]="loginForm.get('email')?.errors"
+          [color]="'text-error'"
+        >
+        </span>
       </label>
     </div>
     <div class="form-control w-full mt-4">
@@ -21,10 +27,16 @@
           id="password"
           formControlName="password"
         />
-        <shared-eye-btn  />
+        <shared-eye-btn />
       </div>
-      <label class="label" *ngIf="loginForm.controls['password'].touched">
-        <span *ngIf="!loginForm.controls['password'].valid" class="label-text-alt text-error">Campo incorrecto</span>
+      <label *ngIf="loginForm.controls['password'].touched">
+        <span
+          class="label-text-alt"
+          customLabel
+          [errors]="loginForm.get('password')?.errors"
+          [color]="'text-error'"
+        >
+        </span>
       </label>
     </div>
   </div>
@@ -34,7 +46,9 @@
       >Recuperar contraseña</span
     >
   </div>
-  <shared-btn [type]="'submit'" [btnDisabled]="!loginForm.valid">Entrar</shared-btn>
+  <shared-btn [type]="'submit'" [btnDisabled]="!loginForm.valid"
+    >Entrar</shared-btn
+  >
   <div class="text-center mt-4">
     ¿No tiene una cuenta?
     <span
