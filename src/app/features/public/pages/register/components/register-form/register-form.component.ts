@@ -20,16 +20,26 @@ export class RegisterFormComponent {
   public showPassword = this.eyeBtnService.showEye;
 
   public registerForm: FormGroup = this.fb.group({
-    first_name: ['', [Validators.required]],
-    last_name: ['', [Validators.required]],
+    first_name: ['', [Validators.required, Validators.minLength(2)]],
+    last_name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(50),
+        Validators.pattern(
+          /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/
+        ),
+      ],
+    ],
     valid_password: ['', [Validators.required]],
   });
 
   onRegister(): void {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value)
+      console.log(this.registerForm.value);
     }
   }
 }
