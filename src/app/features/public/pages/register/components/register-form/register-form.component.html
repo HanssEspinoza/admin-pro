@@ -81,15 +81,25 @@
         class="input input-bordered w-full"
         type="password"
         id="valid_password"
-        formControlName="valid_password"
+        formControlName="confirm_password"
       />
-      <label *ngIf="registerForm.controls['valid_password'].touched">
+      <label *ngIf="registerForm.controls['confirm_password'].touched">
         <span
           class="label-text-alt"
           customLabel
-          [errors]="registerForm.get('valid_password')?.errors"
+          [errors]="registerForm.get('confirm_password')?.errors"
           [color]="'text-error'"
         >
+        </span>
+        <span
+          class="label-text-alt text-error"
+          customLabel
+          *ngIf="
+            registerForm.hasError('mismatch') &&
+            registerForm.get('confirm_password')?.value !== ''
+          "
+        >
+          Las contraseñas no son iguales.
         </span>
       </label>
     </div>
