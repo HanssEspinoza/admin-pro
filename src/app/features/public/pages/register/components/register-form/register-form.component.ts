@@ -58,10 +58,10 @@ export class RegisterFormComponent {
         .subscribe({
           next: ({ message }) => {
             this.toastService.show({
-              color: 'error',
+              color: 'success',
               message,
-              icon: faCircleXmark,
-              duration: 15000,
+              icon: faCheckCircle,
+              duration: 4000,
             });
             this.router.navigateByUrl('/');
           },
@@ -71,7 +71,7 @@ export class RegisterFormComponent {
               color: 'error',
               message,
               icon: faCircleXmark,
-              duration: 15000,
+              duration: 4000,
             });
           },
         });
