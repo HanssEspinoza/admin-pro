@@ -34,7 +34,7 @@ export class LoginFormComponent {
         .subscribe({
           next: () => this.router.navigateByUrl('/dashboard'),
           error: (message) => {
-            console.log(message)
+            console.log(message);
             this.toastService.show('error',message,faCircleXmark);
           }
         });

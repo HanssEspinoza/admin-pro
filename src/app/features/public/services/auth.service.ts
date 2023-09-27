@@ -8,6 +8,8 @@ import {
   CheckTokenResponse,
   LoginForm,
   LoginResponse,
+  RegisterForm,
+  RegisterResponse,
   User,
 } from '../models';
 
@@ -38,6 +40,14 @@ export class AuthService {
       map(({ reply }) => this.setAuthentication(reply.user, reply.token)),
       catchError((error) => throwError(() => error.error.message))
     );
+  }
+
+  register(registerForm: RegisterForm) {
+    const { confirm_password, ...registerBody } = registerForm;
+
+    return this.apiService
+      .store<RegisterResponse>('auth/register', registerBody)
+      .pipe(catchError((error) => throwError(() => error.error.message)));
   }
 
   checkAuthStatus(): Observable<boolean> {

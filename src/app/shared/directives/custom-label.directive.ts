@@ -44,7 +44,7 @@ export class CustomLabelDirective {
 
     // Obtener las keys del error que esta en el momento
     const errors = Object.keys(this._errors);
-    console.log(errors);
+    // console.log(errors);
 
     if (errors.includes('required')) {
       this.htmlElement.nativeElement.innerText = 'Este campo es obligatorio.';

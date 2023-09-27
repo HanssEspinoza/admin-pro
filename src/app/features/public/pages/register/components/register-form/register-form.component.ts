@@ -1,6 +1,11 @@
-import { Component, computed, inject, DestroyRef } from '@angular/core';
+import { Component, inject, DestroyRef } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {
+  faCheckCircle,
+  faCircleXmark,
+} from '@fortawesome/free-regular-svg-icons';
 
 import { EyeBtnService, ToastService } from '@core/services';
 import { CustomValidators } from '@core/utils';
@@ -47,7 +52,19 @@ export class RegisterFormComponent {
 
   onRegister(): void {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
+      this.authService
+        .register(this.registerForm.value)
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe({
+          next: ({ message }) => {
+            this.toastService.show('success', message, faCheckCircle);
+            this.router.navigateByUrl('/');
+          },
+          error: (message) => {
+            console.log(message);
+            this.toastService.show('error', message, faCircleXmark);
+          },
+        });
     }
   }
 }
