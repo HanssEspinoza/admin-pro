@@ -13,10 +13,4 @@ export class TitleCardComponent {
 
   @Input()
   topMargin: string = 'mt-6';
-
-  get margin() {
-    return {
-      topMargin: true
-    }
-  }
 }
