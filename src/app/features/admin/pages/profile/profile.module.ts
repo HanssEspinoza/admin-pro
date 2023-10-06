@@ -3,17 +3,23 @@ import { CommonModule } from '@angular/common';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
-import { TitleCardComponent } from '@shared/components';
+import { BtnComponent, InputTextComponent, TitleCardComponent } from '@shared/components';
+import { ProfileFormComponent } from './components/profile-form/profile-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    ProfileFormComponent
   ],
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    TitleCardComponent
+    TitleCardComponent,
+    InputTextComponent,
+    BtnComponent,
+    ReactiveFormsModule,
   ]
 })
 export class ProfileModule { }
