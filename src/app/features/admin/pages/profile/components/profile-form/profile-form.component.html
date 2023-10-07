@@ -2,12 +2,17 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <shared-input-text
       [labelTitle]="firstNameLabel"
-      [value]="user()!.first_name"
-      [control]="profileForm.get('first_name')"
+      [control]="$any(profileForm.get('first_name'))"
     />
     <shared-input-text
       [labelTitle]="lastNameLabel"
-      [value]="user()!.last_name"
+      [control]="$any(profileForm.get('last_name'))"
+    />
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <shared-input-text
+      [labelTitle]="emailLabel"
+      [control]="$any(profileForm.get('email'))"
     />
   </div>
   <div class="mt-16">
