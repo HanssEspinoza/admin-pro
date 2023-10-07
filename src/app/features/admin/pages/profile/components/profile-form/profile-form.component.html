@@ -16,6 +16,12 @@
     />
   </div>
   <div class="mt-16">
-    <shared-btn [type]="'submit'" class="float-right"> Guardar </shared-btn>
+    <shared-btn
+      [type]="'submit'"
+      [btnDisabled]="!this.profileForm.valid"
+      class="float-right"
+    >
+      Guardar
+    </shared-btn>
   </div>
 </form>
